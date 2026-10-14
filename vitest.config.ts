@@ -8,7 +8,12 @@ export default defineConfig({
       provider: "v8",
       include: ["src/pricing.ts"],
       reporter: ["text", "html"],
-      thresholds: { statements: 100, branches: 100, functions: 100, lines: 100 },
+      thresholds: {
+        statements: 100,
+        branches: 100,
+        functions: 100,
+        lines: 100,
+      },
     },
   },
 });

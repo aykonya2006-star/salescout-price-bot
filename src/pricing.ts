@@ -2,7 +2,7 @@ import type { Product, PriceResult } from "./types";
 
 /**
  * Чистая функция: рассчитывает новую цену для одного товара.
- * Правила — см. README, раздел «Правила расчёта цены».
+ * Правила — см. README, раздел «Алгоритм».
  * Не меняйте сигнатуру и путь к файлу: решение проверяется автотестами.
  */
 export function calculatePrice(product: Product): PriceResult {
@@ -18,7 +18,11 @@ export function calculatePrice(product: Product): PriceResult {
   const original = { sku: product.sku, oldPrice: product.myPrice };
 
   if (best === Infinity) {
-    return { ...original, newPrice: product.maxPrice, reason: "NO_COMPETITORS" };
+    return {
+      ...original,
+      newPrice: product.maxPrice,
+      reason: "NO_COMPETITORS",
+    };
   }
 
   const candidate = Math.floor(best - product.step);
